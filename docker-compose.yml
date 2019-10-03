@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs
+    container_name: nodejs-frontend
+    restart: on-failure
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/opt/app
+      - ./node_modules:/opt/app/node_modules
+    command: /opt/app/docker-entrypoint.sh
