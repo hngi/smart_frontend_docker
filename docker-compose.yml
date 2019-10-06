@@ -9,7 +9,7 @@ services:
     container_name: nodejs-frontend
     restart: on-failure
     ports:
-      - "5000:5000"
+      - "5020:5000"
     volumes:
       - .:/opt/app
       - ./node_modules:/opt/app/node_modules
