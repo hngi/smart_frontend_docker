@@ -7,10 +7,11 @@ services:
       dockerfile: Dockerfile
     image: nodejs
     container_name: nodejs-frontend
+    user: smartos
     restart: on-failure
     ports:
       - "5020:5000"
     volumes:
-      - .:/opt/app
-      - ./node_modules:/opt/app/node_modules
-    command: /opt/app/docker-entrypoint.sh
+      - .:/home/smartos/app
+      - ./node_modules:/home/smartos/app/node_modules
+    command: /home/smartos/app/docker-entrypoint.sh
