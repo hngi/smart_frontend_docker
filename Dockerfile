@@ -1,6 +1,4 @@
 FROM node:10.16
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
 
 ARG user=smartos
 ARG group=smartos
@@ -9,7 +7,7 @@ ARG gid=1004
 
 EXPOSE 5000
 RUN groupadd -g ${gid} ${group} && useradd -u ${uid} -g ${gid} -s /bin/bash -d /home/${user} ${user}
-RUN mkdir -p /home/smartos/app && cp -a /tmp/node_modules /home/smartos/app/
+RUN mkdir -p /home/smartos/app
 RUN chown -R smartos:smartos /home/smartos
 RUN npm install -g serve
 
